@@ -1,9 +1,0 @@
-import{r as i}from"./chunks/index.7c51d92b.js";var e={exports:{}},f={};/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */var c=i.exports,_=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,y=c.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,N={key:!0,ref:!0,__self:!0,__source:!0};function u(t,r,p){var s,n={},o=null,x=null;p!==void 0&&(o=""+p),r.key!==void 0&&(o=""+r.key),r.ref!==void 0&&(x=r.ref);for(s in r)m.call(r,s)&&!N.hasOwnProperty(s)&&(n[s]=r[s]);if(t&&t.defaultProps)for(s in r=t.defaultProps,r)n[s]===void 0&&(n[s]=r[s]);return{$$typeof:_,type:t,key:o,ref:x,props:n,_owner:y.current}}f.Fragment=l;f.jsx=u;f.jsxs=u;(function(t){t.exports=f})(e);function v({pages:t,headingLevel:r=1,heading:p}){const[s,n]=i.exports.useState(!0);return e.exports.jsxs(e.exports.Fragment,{children:[p&&e.exports.jsx("button",{onClick:()=>n(o=>!o),children:e.exports.jsx(O,{headingLevel:r,children:p})}),s&&e.exports.jsx("ul",{children:Object.entries(t).map(([o,x])=>{const j=r+1,a=isNaN(parseInt(o))&&o.split("/").at(-1);return e.exports.jsx("li",{children:typeof x=="string"?e.exports.jsx("a",{href:o,children:o.split("/").at(-1)}):Object.entries(x).length>0&&e.exports.jsx(v,{pages:x,headingLevel:j,heading:a})},o)})})]})}const O=({headingLevel:t,children:r})=>{if(t===1)return e.exports.jsx("h1",{children:r});if(t===2)return e.exports.jsx("h2",{children:r});if(t===3)return e.exports.jsx("h3",{children:r});if(t===4)return e.exports.jsx("h4",{children:r});if(t===5)return e.exports.jsx("h5",{children:r});if(t===6)return e.exports.jsx("h6",{children:r})};export{v as default};
