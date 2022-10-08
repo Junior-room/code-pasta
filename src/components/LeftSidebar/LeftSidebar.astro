@@ -26,6 +26,6 @@ const listAllDirsAndFiles = (path: string) => {
 const paths = listAllDirsAndFiles(pagesPath);
 ---
 
-<aside class="pt-10 pr-8 w-[300px]">
+<aside>
   <NestedNav pages={paths} heading="Navigation" client:load />
 </aside>
