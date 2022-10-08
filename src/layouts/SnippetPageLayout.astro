@@ -5,9 +5,10 @@ import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
 import * as CONFIG from "../config";
 import type { MarkdownHeading } from "astro";
 import "./SnippetPageLayout.css";
+
 type Props = {
-  frontmatter: CONFIG.Frontmatter;
-  headings: MarkdownHeading[];
+  frontmatter?: CONFIG.Frontmatter;
+  headings?: MarkdownHeading[];
 };
 
 const { frontmatter, headings } = Astro.props as Props;

@@ -6,7 +6,7 @@ type NavItems = {
 
 interface INestedNav {
   pages: NavItems;
-  headingLevel: number;
+  headingLevel?: number;
   heading?: string;
 }
 
@@ -21,6 +21,7 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
       >
         <NavHeading headingLevel={headingLevel}>{heading}</NavHeading>
       </button>
+
       {showNav && (
         <ul className="mx-1">
           {pages.map((page) => {
