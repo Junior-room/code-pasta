@@ -25,26 +25,33 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
         <ul className="mx-1">
           {pages.map((page) => {
             const [path, children] = Object.entries(page)[0]; // page has only one property
+
             const isFile = typeof children === "string";
+            const isDirectory = !isFile;
 
             const childNavLevel = headingLevel + 1;
-            const childNavHeading = path.split("/").at(-1);
+            const childNavHeading = path.split("/").slice(-1)[0];
 
             const isIndexFile = path.includes("index");
-            const linkHref = !isIndexFile && path.split(".").slice(0, -1)[0];
+            const linkHref = !isIndexFile && path.split(".").slice(0, -1)[0]; // remove file extension
 
             if (isFile && isIndexFile) return null;
 
-            const isEmptyDirectory = !isFile && Object.entries(children).length === 0;
+            const isEmptyDirectory = isDirectory && Object.entries(children).length === 0;
             if (isEmptyDirectory) return null;
 
             return (
               <li key={path}>
-                {isFile ? ( //
-                  <a href={linkHref} className="inline-block my-2 px-3">
+                {isFile && (
+                  <a //
+                    href={linkHref}
+                    className="inline-block my-2 px-3"
+                  >
                     {path.split("/").at(-1)}
                   </a>
-                ) : (
+                )}
+
+                {isDirectory && (
                   <NestedNav //
                     pages={children}
                     headingLevel={childNavLevel}
