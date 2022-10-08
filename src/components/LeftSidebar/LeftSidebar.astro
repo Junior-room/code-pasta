@@ -1,0 +1,39 @@
+---
+import { getLanguageFromURL } from "../../languages";
+import { SIDEBAR } from "../../config";
+import NestedNav from "./NestedNav";
+import fs from "fs";
+
+const pagesPath = "./src/pages";
+
+const listAllDirsAndFiles = (path: string) => {
+  const filesAndDirs = fs.readdirSync(path);
+
+  return filesAndDirs.map((f) => {
+    const isFile = f.includes(".");
+    const isDir = !isFile;
+
+    if (isDir) {
+      const dirPath = path + "/" + f;
+      return { [dirPath.replace(pagesPath, "")]: listAllDirsAndFiles(dirPath) };
+    }
+
+    if (isFile) {
+      const filePath = path + "/" + f;
+      return { [filePath.replace(pagesPath, "")]: "" };
+    }
+  });
+};
+
+const paths = listAllDirsAndFiles(pagesPath);
+
+type Props = {
+  currentPage: string;
+};
+
+const { currentPage } = Astro.props as Props;
+---
+{console.log(paths)}
+<div class="pt-10 pr-8">
+  <NestedNav pages={paths} heading="Navigation" client:load />
+</div>
