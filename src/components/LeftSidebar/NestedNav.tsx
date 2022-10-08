@@ -28,7 +28,7 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
             const isFile = typeof children === "string";
 
             const childNavLevel = headingLevel + 1;
-            const childNavHeading = isNaN(parseInt(path)) && path.split("/").at(-1);
+            const childNavHeading = path.split("/").at(-1);
 
             const isIndexFile = path.includes("index");
             const linkHref = !isIndexFile && path.split(".").slice(0, -1)[0];
