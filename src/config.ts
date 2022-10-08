@@ -1,5 +1,5 @@
 export const SITE = {
-	title: 'Documentation',
+	title: 'Code Pasta',
 	description: 'Your website description.',
 	defaultLanguage: 'en_US',
 };
@@ -28,6 +28,7 @@ export type Frontmatter = {
 export const KNOWN_LANGUAGES = {
 	English: 'en',
 } as const;
+
 export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
 
 export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/tree/main/examples/docs`;

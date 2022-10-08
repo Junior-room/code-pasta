@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 type NavItems = {
   [key: string]: NavItems | string;
@@ -8,22 +8,23 @@ interface INestedNav {
   pages: NavItems;
   headingLevel?: number;
   heading?: string;
+  path?: string;
 }
 
-function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
+function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav) {
   const [showNav, setShowNav] = useState(true);
 
   return (
     <>
       <button
         onClick={() => setShowNav((prev) => !prev)}
-        className="my-1 px-3 rounded-md w-full block text-left hover:bg-blue-900"
+        className="my-1 px-3 rounded-md w-full block text-left hover:bg-gray-300 dark:hover:bg-blue-600"
       >
         <NavHeading headingLevel={headingLevel}>{heading}</NavHeading>
       </button>
 
       {showNav && (
-        <ul className="mx-1">
+        <ul className="ml-1.5 border-l border-cyan-900 border-opacity-50">
           {pages.map((page) => {
             const [path, children] = Object.entries(page)[0]; // page has only one property
 
@@ -57,6 +58,7 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
                     pages={children}
                     headingLevel={childNavLevel}
                     heading={childNavHeading}
+                    path={path}
                   />
                 )}
               </li>

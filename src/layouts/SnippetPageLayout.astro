@@ -2,6 +2,9 @@
 import HeadCommon from "../components/HeadCommon.astro";
 import HeadSEO from "../components/HeadSEO.astro";
 import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
+import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
+import Header from "../components/Header/Header.astro";
+import Footer from "../components/Footer/Footer.astro";
 import * as CONFIG from "../config";
 import type { MarkdownHeading } from "astro";
 import "./SnippetPageLayout.css";
@@ -24,12 +27,15 @@ const currentFile = `src/pages${currentPage.replace(/\/$/, "")}.md`;
     {frontmatter?.title ? `${frontmatter.title} 🚀 ${CONFIG.SITE.title}` : CONFIG.SITE.title}
   </title>
 
-  <body class="w-full max-w-[1000px] mx-auto px-4">
-    <div class="grid grid-cols-[300px_auto]">
+  <body class="w-full max-w-[1300px] mx-auto px-4">
+    <Header currentPage={currentPage}/>
+    <main class="grid grid-cols-[20%_60%_20%] py-10">
       <LeftSidebar />
-      <div class="content pt-10">
+      <article class="px-8">
         <slot />
-      </div>
-    </div>
+      </article>
+      <RightSidebar headings={headings}/>
+    </main>
+    <Footer />
   </body>
 </html>
