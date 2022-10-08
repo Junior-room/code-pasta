@@ -43,7 +43,9 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
             return (
               <li key={path}>
                 {isFile ? ( //
-                  <a href={linkHref} className="inline-block my-2">{path.split("/").at(-1)}</a>
+                  <a href={linkHref} className="inline-block my-2">
+                    {path.split("/").at(-1)}
+                  </a>
                 ) : (
                   <NestedNav //
                     pages={children}
@@ -66,7 +68,7 @@ interface INavHeading {
   headingLevel: number;
   children: string;
 }
-const NavHeading = ({ headingLevel, children }: INavHeading) => {
+const NavHeading: React.FC<INavHeading> = ({ headingLevel, children }) => {
   switch (headingLevel) {
     case 2:
       return <h2 className="pl-0 my-2">{children}</h2>;

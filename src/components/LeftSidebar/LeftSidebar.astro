@@ -33,7 +33,7 @@ type Props = {
 
 const { currentPage } = Astro.props as Props;
 ---
-{console.log(paths)}
+
 <div class="pt-10 pr-8">
   <NestedNav pages={paths} heading="Navigation" client:load />
 </div>

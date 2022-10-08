@@ -8,6 +8,8 @@ layout: ../../../../layouts/SnippetPageLayout.astro
 
 "Debouncing" lets you postpone execution of a function {timeout} miliseconds after it's last call. If a function is called again before timeout of the previous one ends, the previous function call is cancelled and new timeout is started by the last function call.
 
+## Use cases:
+
 Usage example could be a simple search input. If user strokes a key, we'd ideally want to show him actual search results each time. But in order to reduce api calls to the server, we can debounce the call so that it's executed only after user stops writing for {timeout} miliseconds.
 
 ## Code: 
