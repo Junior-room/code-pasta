@@ -12,7 +12,6 @@ interface INestedNav {
 }
 
 function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav) {
-  // const [showNav, setShowNav] = useState(typeof window !== "undefined" && window.location.pathname.includes(path));
   const [showNav, setShowNav] = useState(true);
 
   return (

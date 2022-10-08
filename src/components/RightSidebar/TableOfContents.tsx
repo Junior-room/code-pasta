@@ -1,5 +1,4 @@
-import type { FunctionalComponent } from "preact";
-import { useState, useEffect, useRef } from "preact/hooks";
+import React, { useState, useEffect, useRef } from "react";
 import type { MarkdownHeading } from "astro";
 
 type ItemOffsets = {
@@ -7,7 +6,7 @@ type ItemOffsets = {
   topOffset: number;
 };
 
-const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({ headings = [] }) => {
+const TableOfContents: React.FC<{ headings: MarkdownHeading[] }> = ({ headings = [] }) => {
   const itemOffsets = useRef<ItemOffsets[]>([]);
   // FIXME: Not sure what this state is doing. It was never set to anything truthy.
   const [activeId] = useState<string>("");
