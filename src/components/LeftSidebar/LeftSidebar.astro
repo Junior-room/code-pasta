@@ -9,14 +9,14 @@ const listAllDirsAndFiles = (path: string) => {
   
   return filesAndDirs.map((f) => {
     const isFile = f.includes("."); // please, don't use dots in folder names
-    const isDir = !isFile;
+    const isDirectory = !isFile;
     
     if (isFile) {
       const filePath = path + "/" + f;
       return { [filePath.replace(pagesPath, "")]: "" };
     }
     
-    if (isDir) {
+    if (isDirectory) {
       const dirPath = path + "/" + f;
       return { [dirPath.replace(pagesPath, "")]: listAllDirsAndFiles(dirPath) };
     }
