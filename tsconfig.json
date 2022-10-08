@@ -2,7 +2,10 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "jsx": "preserve",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": [
+      "ES2018"
+    ]
   },
   "paths": {
     "@root/*": [

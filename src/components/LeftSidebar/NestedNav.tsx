@@ -15,14 +15,12 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
 
   return (
     <>
-      {heading && (
-        <button
-          onClick={() => setShowNav((prev) => !prev)}
-          className="px-3 rounded-md w-full block text-left hover:bg-blue-900"
-        >
-          <NavHeading headingLevel={headingLevel}>{heading}</NavHeading>
-        </button>
-      )}
+      <button
+        onClick={() => setShowNav((prev) => !prev)}
+        className="my-1 px-3 rounded-md w-full block text-left hover:bg-blue-900"
+      >
+        <NavHeading headingLevel={headingLevel}>{heading}</NavHeading>
+      </button>
       {showNav && (
         <ul className="mx-1">
           {pages.map((page) => {
@@ -43,7 +41,7 @@ function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
             return (
               <li key={path}>
                 {isFile ? ( //
-                  <a href={linkHref} className="inline-block my-2">
+                  <a href={linkHref} className="inline-block my-2 px-3">
                     {path.split("/").at(-1)}
                   </a>
                 ) : (
