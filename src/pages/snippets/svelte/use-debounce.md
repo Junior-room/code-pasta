@@ -1,7 +1,7 @@
 ---
 title: hook - useDebounce
 description: useDebounce - debounce your callback
-layout: ../../../../layouts/SnippetPageLayout.astro
+layout: ../../../layouts/SnippetPageLayout.astro
 ---
 
 # useDebounce
