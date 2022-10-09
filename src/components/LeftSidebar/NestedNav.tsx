@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useState, useEffect } from "react";
 
 type NavItems = {
@@ -8,11 +9,15 @@ interface INestedNav {
   pages: NavItems;
   headingLevel?: number;
   heading?: string;
-  path?: string;
 }
 
-function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav) {
+function NestedNav({ pages, headingLevel = 2, heading }: INestedNav) {
   const [showNav, setShowNav] = useState(true);
+  const [currentPath, setCurrentPath] = useState("");
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   return (
     <>
@@ -45,9 +50,12 @@ function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav)
             return (
               <li key={path}>
                 {isFile && (
-                  <a //
+                  <a
                     href={linkHref}
-                    className="inline-block my-2 px-3"
+                    className={clsx(
+                      "ml-2 inline-block my-2 px-3 rounded-md",
+                      linkHref === currentPath && "bg-blue-500 text-white"
+                    )}
                   >
                     {path.split("/").at(-1)}
                   </a>
@@ -58,7 +66,6 @@ function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav)
                     pages={children}
                     headingLevel={childNavLevel}
                     heading={childNavHeading}
-                    path={path}
                   />
                 )}
               </li>

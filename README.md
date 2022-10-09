@@ -1,3 +1,18 @@
+# Code Pasta
+## Copy snippets and pase into your project
+
+Code pasta is an open source project focused on providing and documenting code snippets on any topic related to both frontend and backend development.
+
+## How to contribute
+
+1. Create new branch with name describing what it includes. Possibly prefix the branch name fith 'feature/', 'snippets/', '/bugfix', '/snippet-fix', 'snippet-append/, or anything else that is appropriate.
+2. Add your feature or a set of useful code snippets. Each snippet should be it's own markdown or astro page. If you're using Astro, you can take advantage of it's goods and use any framework you wish that is supported. (Just add an integration if missing). But use a framework only if required for your needs, if markdown is enough, use markdown.
+3. Please, add a documentation to your snippet, explaining what it does, when it's good to use it and as much info as possible to help other people use it without any effort.
+4. Please, add Typescript versions of the snippets, we're promoting good practices here, not using Typescript is not a good practice (if you want, you can additionally attach JS version at the bottom, but TS version is mandatory)
+5. Create pull request to master
+6. Wait for code review
+
+
 # Astro Starter Kit: Docs Site
 
 ```bash
