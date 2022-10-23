@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-type NavItems = {
-  [key: string]: NavItems | string;
-}[];
+type NavItems = Record<string, NavItems | string>[];
 
 interface INestedNav {
   pages: NavItems;
@@ -45,7 +43,7 @@ function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav)
             return (
               <li key={path}>
                 {isFile && (
-                  <a //
+                  <a
                     href={linkHref}
                     className="inline-block my-2 px-3"
                   >
@@ -54,7 +52,7 @@ function NestedNav({ pages, headingLevel = 2, heading, path = "/" }: INestedNav)
                 )}
 
                 {isDirectory && (
-                  <NestedNav //
+                  <NestedNav
                     pages={children}
                     headingLevel={childNavLevel}
                     heading={childNavHeading}
@@ -79,15 +77,15 @@ interface INavHeading {
 const NavHeading: React.FC<INavHeading> = ({ headingLevel, children }) => {
   switch (headingLevel) {
     case 2:
-      return <h2 className="pl-0 my-2">{children}</h2>;
+      return <h2 className="pl-0 my-2 text-2xl">{children}</h2>;
     case 3:
-      return <h3 className="pl-0 my-2">{children}</h3>;
+      return <h3 className="pl-0 my-2 text-xl">{children}</h3>;
     case 4:
-      return <h4 className="pl-0 my-2">{children}</h4>;
+      return <h4 className="pl-0 my-2 text-lg">{children}</h4>;
     case 5:
-      return <h5 className="pl-0 my-2">{children}</h5>;
+      return <h5 className="pl-0 my-2 text-base">{children}</h5>;
     case 6:
-      return <h6 className="pl-0 my-2">{children}</h6>;
+      return <h6 className="pl-0 my-2 text-xs">{children}</h6>;
     default:
       return null;
   }
