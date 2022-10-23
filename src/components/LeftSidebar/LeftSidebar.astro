@@ -1,31 +1,10 @@
 ---
+import getNavigationMap from "../../utils/getNavigationMap";
 import NestedNav from "./NestedNav";
-import fs from "fs";
 
-const pagesPath = "./src/pages";
-
-const listAllDirsAndFiles = (path: string) => {
-  const filesAndDirs = fs.readdirSync(path);
-  
-  return filesAndDirs.map((f) => {
-    const isFile = f.includes("."); // please, don't use dots in folder names
-    const isDirectory = !isFile;
-    
-    if (isFile) {
-      const filePath = path + "/" + f;
-      return { [filePath.replace(pagesPath, "")]: "" };
-    }
-    
-    if (isDirectory) {
-      const dirPath = path + "/" + f;
-      return { [dirPath.replace(pagesPath, "")]: listAllDirsAndFiles(dirPath) };
-    }
-  });
-};
-
-const paths = listAllDirsAndFiles(pagesPath);
+const pages = getNavigationMap();
 ---
 
 <aside>
-  <NestedNav pages={paths} heading="Navigation" client:load />
+  <NestedNav pages={pages} heading="Navigation" client:load />
 </aside>
